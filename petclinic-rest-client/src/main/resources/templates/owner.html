@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Owners</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Owners</h1>
+<div th:switch="${owners}">
+    <h2 th:case="null">No owners yet!</h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="owner : ${owners}">
+                <td th:text="${owner.name}"></td>
+                <td th:text="${owner.address}"></td>
+                <td th:text="${owner.city}"></td>
+                <td th:text="${owner.phoneNumber}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/addOwner">Add a new Owner</a></p>
+</div>
+
+</body>
+
+</html>
